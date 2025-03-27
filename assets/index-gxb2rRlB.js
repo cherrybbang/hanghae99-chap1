@@ -1,4 +1,4 @@
-(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))i(e);new MutationObserver(e=>{for(const s of e)if(s.type==="childList")for(const a of s.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&i(a)}).observe(document,{childList:!0,subtree:!0});function l(e){const s={};return e.integrity&&(s.integrity=e.integrity),e.referrerPolicy&&(s.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?s.credentials="include":e.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function i(e){if(e.ep)return;e.ep=!0;const s=l(e);fetch(e.href,s)}})();const n=()=>{const o=`
+(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))a(e);new MutationObserver(e=>{for(const s of e)if(s.type==="childList")for(const l of s.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&a(l)}).observe(document,{childList:!0,subtree:!0});function n(e){const s={};return e.integrity&&(s.integrity=e.integrity),e.referrerPolicy&&(s.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?s.credentials="include":e.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function a(e){if(e.ep)return;e.ep=!0;const s=n(e);fetch(e.href,s)}})();const i=()=>`
     <header class="bg-blue-600 text-white p-4 sticky top-0">
       <h1 class="text-2xl font-bold">항해플러스</h1>
     </header>
@@ -11,7 +11,7 @@
             <li id="logout"><a href="/" class="text-gray-600">로그아웃</a></li>`:'<li><a href="/login" class="text-gray-600">로그인</a></li>'}
       </ul>
     </nav>
-  `;return setTimeout(()=>{const l=document.getElementById("logout");l&&l.addEventListener("click",()=>{localStorage.removeItem("user"),b("/")})},0),o},r=()=>`
+  `,r=()=>`
 <footer class="bg-gray-200 p-4 text-center">
   <p>&copy; 2024 항해플러스. All rights reserved.</p>
 </footer>
@@ -126,7 +126,7 @@
         </div>
       </div>
     </main>
-  `;return setTimeout(()=>{(()=>{const l=document.getElementById("login-form"),i=document.getElementById("username"),e=s=>{s.preventDefault();const a=i.value;localStorage.setItem("user",JSON.stringify({username:a,email:"",bio:""})),b("/profile")};l.addEventListener("submit",e)})()},0),t},p=()=>{const t=JSON.parse(localStorage.getItem("user")),o=`
+  `;return setTimeout(()=>{(()=>{const n=document.getElementById("login-form"),a=document.getElementById("username"),e=s=>{s.preventDefault();const l=a.value;localStorage.setItem("user",JSON.stringify({username:l,email:"",bio:""})),b("/profile")};n.addEventListener("submit",e)})()},0),t},p=()=>{const t=JSON.parse(localStorage.getItem("user"));return`
     <div id="root">
      <div class="bg-gray-100 min-h-screen flex justify-center">
        <div class="max-w-md w-full">
@@ -189,7 +189,7 @@
        </div>
      </div>
    </div>
-  `;return setTimeout(()=>{const l=document.getElementById("profile-form");l&&l.addEventListener("submit",i=>{i.preventDefault();const e=document.getElementById("email").value,s=document.getElementById("bio").value,a=JSON.parse(localStorage.getItem("user"));a.email=e,a.bio=s,localStorage.setItem("user",JSON.stringify(a)),alert("프로필이 업데이트되었습니다.")})},0),o},f=()=>`
+  `},f=()=>`
 <main class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-lg shadow-md w-full text-center" style="max-width: 480px">
       <h1 class="text-2xl font-bold text-blue-600 mb-4">항해플러스</h1>
@@ -203,4 +203,4 @@
       </a>
     </div>
   </main>
-`,u=()=>localStorage.getItem("user"),m=()=>{let t="";if(window.location.pathname)switch(window.location.pathname){case"/":t=`${n()}${c()}${r()}`;break;case"/login":t=`${d()}`;break;case"/profile":u()?t=`${n()}${p()}${r()}`:(window.history.pushState({},"","/login"),t=`${d()}`);break;default:t=`${f()}`;break}if(window.location.hash)switch(window.location.hash){case"#/":t=`${n()}${c()}${r()}`;break;case"#/login":u()?(window.history.hash="#/",t=`${n()}${c()}${r()}`):t=`${d()}`;break;case"#/profile":u()?t=`${n()}${p()}${r()}`:(window.history.hash="#/login",t=`${d()}`);break;default:t=`${f()}`;break}document.getElementById("root").innerHTML=t},b=t=>{window.location.hash?window.location.hash=t:window.history.pushState({},"",t),m()};document.addEventListener("DOMContentLoaded",()=>{m()});window.addEventListener("popstate",()=>{m()});document.body.addEventListener("click",t=>{if(t.target.tagName==="A"){t.preventDefault();const o=t.target.getAttribute("href");b(o)}});
+`,u=()=>localStorage.getItem("user"),m=()=>{let t="";if(window.location.pathname)switch(window.location.pathname){case"/":t=`${i()}${c()}${r()}`;break;case"/login":t=`${d()}`;break;case"/profile":u()?t=`${i()}${p()}${r()}`:(window.history.pushState({},"","/login"),t=`${d()}`);break;default:t=`${f()}`;break}if(window.location.hash)switch(window.location.hash){case"#/":t=`${i()}${c()}${r()}`;break;case"#/login":u()?(window.history.hash="#/",t=`${i()}${c()}${r()}`):t=`${d()}`;break;case"#/profile":u()?t=`${i()}${p()}${r()}`:(window.history.hash="#/login",t=`${d()}`);break;default:t=`${f()}`;break}document.getElementById("root").innerHTML=t;const o=document.getElementById("logout");o&&o.addEventListener("click",()=>{localStorage.removeItem("user"),b("/")});const n=document.getElementById("profile-form");n&&n.addEventListener("submit",a=>{a.preventDefault();const e=document.getElementById("email").value,s=document.getElementById("bio").value,l=JSON.parse(localStorage.getItem("user"));l.email=e,l.bio=s,localStorage.setItem("user",JSON.stringify(l)),alert("프로필이 업데이트되었습니다.")})},b=t=>{window.location.hash?window.location.hash=t:window.history.pushState({},"",t),m()};document.addEventListener("DOMContentLoaded",()=>{m()});window.addEventListener("popstate",()=>{m()});document.body.addEventListener("click",t=>{if(t.target.tagName==="A"){t.preventDefault();const o=t.target.getAttribute("href");b(o)}});
